@@ -9,6 +9,11 @@ class Product extends Model{
         parent::__construct($pdo);
     }
 
+    /**
+     * Summary of getProducsWithCategories
+     * @param array $get
+     * @return array
+     */
     public function getProducsWithCategories(array $get):array{      
 
         $conditions = [];

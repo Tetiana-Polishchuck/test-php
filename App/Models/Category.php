@@ -10,7 +10,10 @@ class Category extends Model{
         parent::__construct($pdo);
     }
 
-   
+    /**
+     * Summary of getCategory
+     * @return array
+     */
     public function getCategory() {        
         $query = $this->pdo->query('SELECT categories.name AS category_name, 
             categories.id AS category_id,  

@@ -12,6 +12,11 @@ class HomeController{
         $this->categoryModel = new Category($pdo);
 
     }
+    /**
+     * Summary of index
+     * @param array $get
+     * @return void
+     */
     public function index(array $get){
         $categories_data = $this->categoryModel->getCategory();
         if(!$categories_data['success']){
@@ -28,6 +33,11 @@ class HomeController{
         }
     }
 
+    /**
+     * Summary of getCategory
+     * @param mixed $get
+     * @return bool|string
+     */
     public function getCategory($get){
         $data = $this->productModel->getProducsWithCategories($get);
         return json_encode(['data' => $data['data'], 'success' => $data['success']]);
