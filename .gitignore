@@ -1,3 +1,5 @@
 App/logs/
 
 vendor/
+
+config/
