@@ -25,7 +25,7 @@ if (!isset($products)) {
     <div class="row mb-3">
         <div class="col-4">
             <select id="sort" onchange="sortProducts()"  class="form-control">
-                <option>За замовчуванням</option>
+                <option value="default">За замовчуванням</option>
                 <option value="price_asc">Спочатку дешевші</option>
                 <option value="name_asc">По алфавіту</option>
                 <option value="date_desc">Спочатку нові</option>

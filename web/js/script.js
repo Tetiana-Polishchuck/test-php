@@ -97,7 +97,7 @@ function init(){
     if (validSortValues.includes(sortParam)) {
         sortSelect.val(sortParam);
     } else {
-        sortSelect.val('');
+        sortSelect.val('default');
     }
     toggleLoader(false);
 }

@@ -2,15 +2,18 @@
 
 namespace App\Controllers;
 use App\Models\Product;
+use App\Models\Category;
 
 class HomeController{
     private $productModel;
-
+    private $categoryModel;
     public function __construct($pdo) {
         $this->productModel = new Product($pdo);
+        $this->categoryModel = new Category($pdo);
+
     }
     public function index(array $get){
-        $categories_data = $this->productModel->getCategory();
+        $categories_data = $this->categoryModel->getCategory();
         if(!$categories_data['success']){
             echo 'Something went wrong';
             exit();
