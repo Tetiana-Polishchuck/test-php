@@ -29,4 +29,33 @@ class TreeBuilder{
 
         return $branch;
     }
+
+    public static function buildTreeWithRefs($elements) {
+        $result = [];
+        $refs = [];
+
+        foreach ($elements as $element) {
+            $id = $element['categories_id'];
+            $parentId = $element['parent_id'];
+
+            if ($parentId === 0) {
+                $result[$id] = [];
+                $refs[$id] = &$result[$id];
+            } else {
+                if (!isset($refs[$parentId])) {
+                    $refs[$parentId] = [];
+                }
+
+                if(!is_array($refs[$parentId])){
+                    $refs[$parentId] = [];
+                }
+                
+                $refs[$parentId][$id] = isset($refs[$id]) ? $refs[$id] : $id;
+                $refs[$id] = &$refs[$parentId][$id];
+            }
+        }
+        return $result;    
+    }
+
+   
 }
