@@ -23,7 +23,7 @@ if (!isset($products)) {
     <h1 class="my-4">Товари</h1>
   
     <div class="row mb-3">
-        <div class="col-4">
+        <div class="col-12 col-4">
             <select id="sort" onchange="sortProducts()"  class="form-control">
                 <option value="default">За замовчуванням</option>
                 <option value="price_asc">Спочатку дешевші</option>
@@ -34,7 +34,7 @@ if (!isset($products)) {
     </div>
 
     <div class="row">
-        <div class="categories col-md-4">
+        <div class="categories col-12 col-md-4">
             <h2>Категорії</h2>
             <ul class="list-group">
                 <?php
@@ -48,7 +48,7 @@ if (!isset($products)) {
             </ul>
         </div>
 
-        <div class="products col-md-8">
+        <div class="products col-12 col-md-8">
             <h2>Товари</h2>
             <div class="product hidden">
                 <div class="">
