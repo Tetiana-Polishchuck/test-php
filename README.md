@@ -9,6 +9,11 @@ composer install
 
 при змінах в docker-compose.yml зупитини контейнери (docker-compose down) і заново білдити 
 
+додала приклади таблиць в db_example, можливо будуть корисними
+
+запуск тестування: php vendor/bin/phpunit з кореня проекта
+
+
 приклад database.php
 
 $host = 'host_name';

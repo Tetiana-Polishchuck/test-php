@@ -23,7 +23,7 @@ if (!isset($products)) {
     <h1 class="my-4">Товари</h1>
   
     <div class="row mb-3">
-        <div class="col-4">
+        <div class="col-12 col-4">
             <select id="sort" onchange="sortProducts()"  class="form-control">
                 <option value="default">За замовчуванням</option>
                 <option value="price_asc">Спочатку дешевші</option>
@@ -34,7 +34,7 @@ if (!isset($products)) {
     </div>
 
     <div class="row">
-        <div class="categories col-md-4">
+        <div class="categories col-12 col-md-4">
             <h2>Категорії</h2>
             <ul class="list-group">
                 <?php
@@ -48,19 +48,21 @@ if (!isset($products)) {
             </ul>
         </div>
 
-        <div class="products col-md-8">
+        <div class="products col-12 col-md-8">
             <h2>Товари</h2>
             <div class="product hidden">
                 <div class="">
                     <div class="card-body">
                         <h5></h5>
                         <p>Ціна: <span class="card_price"></span> грн.</p>
+                        <p>Дата: <span class="card_date"></span></p>
                         <button class="btn btn-success" 
                             data-toggle="modal"
                             data-target="#product_modal"
                             data-name=""
                             data-price=""
                             data-quantity=""
+                            data-date=""
                         >Купити</button>
                     </div>
                 </div> 
@@ -72,12 +74,14 @@ if (!isset($products)) {
                         <div class="card-body">
                             <h5><?php echo htmlspecialchars($product['name']); ?></h5>
                             <p>Ціна: <?php echo htmlspecialchars($product['price']); ?> грн.</p>
+                            <p>Дата: <?php echo $product['created_at']; ?></p>
                             <button class="btn btn-success" 
                                 data-toggle="modal"
                                 data-target="#product_modal"
                                 data-name="<?php echo htmlspecialchars($product['name']); ?>"
                                 data-price="<?php echo htmlspecialchars($product['price']); ?>"
                                 data-quantity="<?php echo htmlspecialchars($product['quantity']); ?> "
+                                data-date="<?php echo $product['created_at']; ?> "
                             >Купити</button>
                         </div>
                     </div>     
@@ -109,6 +113,10 @@ if (!isset($products)) {
                 <div class="d-flex">
                     <p>В наявності: </p>
                     <p class="product_quantity"></p>
+                </div>
+                <div class="d-flex">
+                    <p>Дата створення: </p>
+                    <p class="product_date"></p>
                 </div>
             </div>
             <div class="modal-footer">
