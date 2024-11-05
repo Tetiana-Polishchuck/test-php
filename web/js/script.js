@@ -4,18 +4,6 @@ $(document).ready(function() {
 });
 
 
-$('#product_modal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget);
-    var name = button.data('name');
-    var price = button.data('price');
-    var quantity = button.data('quantity');
-    var modal = $(this);
-    modal.find('.modal-title').text(name);
-    modal.find('.product_price').text(price + ' грн.');
-    modal.find('.product_quantity').text(quantity);
-});
-
-
 function display_gategory(id) {
     toggleLoader(true);
     const url = updateUrlParameter('category_id', id);
@@ -46,7 +34,6 @@ function sortProducts() {
     toggleLoader(true);
     const sortValue = $('#sort').val();
     const url = updateUrlParameter('sort', sortValue);
-    console.log(sortValue);
     makeRequest(url);
 }
 
@@ -79,10 +66,12 @@ function updateProducts(data){
         productTemplate.removeClass('hidden');
         productTemplate.find('h5').text(i.name);
         productTemplate.find('.card_price').text(i.price);
+        productTemplate.find('.card_date').text(i.created_at);
         productTemplate.find('button')
             .attr('data-name', i.name)
             .attr('data-price', i.price)
-            .attr('data-quantity', i.quantity);
+            .attr('data-quantity', i.quantity)
+            .attr('data-date', i.created_at);
         $('.product_list').append(productTemplate);
       });
 }
@@ -100,4 +89,20 @@ function init(){
         sortSelect.val('default');
     }
     toggleLoader(false);
+
+
+        
+    $('#product_modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var name = button.data('name');
+        var price = button.data('price');
+        var quantity = button.data('quantity');
+        var date = button.data('date');
+
+        var modal = $(this);
+        modal.find('.modal-title').text(name);
+        modal.find('.product_price').text(price + ' грн.');
+        modal.find('.product_quantity').text(quantity);
+        modal.find('.product_date').text(date);
+    });
 }

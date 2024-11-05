@@ -55,12 +55,14 @@ if (!isset($products)) {
                     <div class="card-body">
                         <h5></h5>
                         <p>Ціна: <span class="card_price"></span> грн.</p>
+                        <p>Дата: <span class="card_date"></span></p>
                         <button class="btn btn-success" 
                             data-toggle="modal"
                             data-target="#product_modal"
                             data-name=""
                             data-price=""
                             data-quantity=""
+                            data-date=""
                         >Купити</button>
                     </div>
                 </div> 
@@ -72,12 +74,14 @@ if (!isset($products)) {
                         <div class="card-body">
                             <h5><?php echo htmlspecialchars($product['name']); ?></h5>
                             <p>Ціна: <?php echo htmlspecialchars($product['price']); ?> грн.</p>
+                            <p>Дата: <?php echo $product['created_at']; ?></p>
                             <button class="btn btn-success" 
                                 data-toggle="modal"
                                 data-target="#product_modal"
                                 data-name="<?php echo htmlspecialchars($product['name']); ?>"
                                 data-price="<?php echo htmlspecialchars($product['price']); ?>"
                                 data-quantity="<?php echo htmlspecialchars($product['quantity']); ?> "
+                                data-date="<?php echo $product['created_at']; ?> "
                             >Купити</button>
                         </div>
                     </div>     
@@ -109,6 +113,10 @@ if (!isset($products)) {
                 <div class="d-flex">
                     <p>В наявності: </p>
                     <p class="product_quantity"></p>
+                </div>
+                <div class="d-flex">
+                    <p>Дата створення: </p>
+                    <p class="product_date"></p>
                 </div>
             </div>
             <div class="modal-footer">
